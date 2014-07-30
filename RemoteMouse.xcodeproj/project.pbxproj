@@ -7,14 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E284BA619884B230014024A /* SlaveTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E284BA519884B230014024A /* SlaveTableViewController.swift */; };
+		0ED371E01988E878007CA288 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED371DF1988E878007CA288 /* main.swift */; };
+		0ED371E21988E878007CA288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED371E11988E878007CA288 /* AppDelegate.swift */; };
+		0ED371E41988E878007CA288 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ED371E31988E878007CA288 /* Images.xcassets */; };
+		0ED371E71988E878007CA288 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ED371E51988E878007CA288 /* MainMenu.xib */; };
+		0ED371F31988E879007CA288 /* RemoteMouseMacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED371F21988E879007CA288 /* RemoteMouseMacTests.swift */; };
+		0ED371FF1988E972007CA288 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED371FE1988E972007CA288 /* NetworkHelper.swift */; };
+		0ED372001988E972007CA288 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED371FE1988E972007CA288 /* NetworkHelper.swift */; };
+		0ED372021988EC1D007CA288 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ED372011988EC1D007CA288 /* CFNetwork.framework */; };
+		0ED372041988EC26007CA288 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ED372031988EC26007CA288 /* CFNetwork.framework */; };
 		0EEB48FD19883E5000FBF84D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB48FC19883E5000FBF84D /* AppDelegate.swift */; };
-		0EEB48FF19883E5000FBF84D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB48FE19883E5000FBF84D /* ViewController.swift */; };
 		0EEB490219883E5000FBF84D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EEB490019883E5000FBF84D /* Main.storyboard */; };
 		0EEB490419883E5000FBF84D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EEB490319883E5000FBF84D /* Images.xcassets */; };
 		0EEB491019883E5000FBF84D /* RemoteMouseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB490F19883E5000FBF84D /* RemoteMouseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0ED371ED1988E879007CA288 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0EEB48EF19883E5000FBF84D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0ED371DA1988E878007CA288;
+			remoteInfo = RemoteMouseMac;
+		};
+		0ED371FA1988E87A007CA288 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0EEB48EF19883E5000FBF84D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0ED371DA1988E878007CA288;
+			remoteInfo = RemoteMouseMac;
+		};
 		0EEB490A19883E5000FBF84D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0EEB48EF19883E5000FBF84D /* Project object */;
@@ -25,10 +48,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E284BA519884B230014024A /* SlaveTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlaveTableViewController.swift; path = ViewControllers/SlaveTableViewController.swift; sourceTree = "<group>"; };
+		0ED371DB1988E878007CA288 /* RemoteMouseMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteMouseMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0ED371DE1988E878007CA288 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0ED371DF1988E878007CA288 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		0ED371E11988E878007CA288 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0ED371E31988E878007CA288 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0ED371E61988E878007CA288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		0ED371EC1988E879007CA288 /* RemoteMouseMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemoteMouseMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0ED371F11988E879007CA288 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0ED371F21988E879007CA288 /* RemoteMouseMacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteMouseMacTests.swift; sourceTree = "<group>"; };
+		0ED371FE1988E972007CA288 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkHelper.swift; path = Common/NetworkHelper.swift; sourceTree = "<group>"; };
+		0ED372011988EC1D007CA288 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		0ED372031988EC26007CA288 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		0EEB48F719883E5000FBF84D /* RemoteMouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteMouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EEB48FB19883E5000FBF84D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EEB48FC19883E5000FBF84D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0EEB48FE19883E5000FBF84D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0EEB490119883E5000FBF84D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0EEB490319883E5000FBF84D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0EEB490919883E5000FBF84D /* RemoteMouseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemoteMouseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,10 +72,26 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0ED371D81988E878007CA288 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0ED372041988EC26007CA288 /* CFNetwork.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0ED371E91988E879007CA288 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0EEB48F419883E5000FBF84D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ED372021988EC1D007CA288 /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,12 +105,80 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0ED371DC1988E878007CA288 /* RemoteMouseMac */ = {
+			isa = PBXGroup;
+			children = (
+				0ED371E11988E878007CA288 /* AppDelegate.swift */,
+				0ED371E31988E878007CA288 /* Images.xcassets */,
+				0ED371E51988E878007CA288 /* MainMenu.xib */,
+				0ED371DD1988E878007CA288 /* Supporting Files */,
+			);
+			path = RemoteMouseMac;
+			sourceTree = "<group>";
+		};
+		0ED371DD1988E878007CA288 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0ED371DE1988E878007CA288 /* Info.plist */,
+				0ED371DF1988E878007CA288 /* main.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0ED371EF1988E879007CA288 /* RemoteMouseMacTests */ = {
+			isa = PBXGroup;
+			children = (
+				0ED371F21988E879007CA288 /* RemoteMouseMacTests.swift */,
+				0ED371F01988E879007CA288 /* Supporting Files */,
+			);
+			name = RemoteMouseMacTests;
+			sourceTree = "<group>";
+		};
+		0ED371F01988E879007CA288 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0ED371F11988E879007CA288 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0ED371FC1988E8F7007CA288 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				0EEB490C19883E5000FBF84D /* RemoteMouseTests */,
+				0ED371EF1988E879007CA288 /* RemoteMouseMacTests */,
+			);
+			name = Tests;
+			path = RemoteMouseMacTests;
+			sourceTree = "<group>";
+		};
+		0ED371FD1988E90E007CA288 /* RemoteMouseCommon */ = {
+			isa = PBXGroup;
+			children = (
+				0ED371FE1988E972007CA288 /* NetworkHelper.swift */,
+			);
+			name = RemoteMouseCommon;
+			sourceTree = "<group>";
+		};
+		0ED372051988EC36007CA288 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0ED372031988EC26007CA288 /* CFNetwork.framework */,
+				0ED372011988EC1D007CA288 /* CFNetwork.framework */,
+			);
+			name = Frameworks;
+			path = RemoteMouseMacTests;
+			sourceTree = "<group>";
+		};
 		0EEB48EE19883E5000FBF84D = {
 			isa = PBXGroup;
 			children = (
-				0EEB48F919883E5000FBF84D /* RemoteMouse */,
-				0EEB490C19883E5000FBF84D /* RemoteMouseTests */,
+				0ED371FD1988E90E007CA288 /* RemoteMouseCommon */,
+				0ED371DC1988E878007CA288 /* RemoteMouseMac */,
+				0EEB48F919883E5000FBF84D /* RemoteMouseIOS */,
+				0ED371FC1988E8F7007CA288 /* Tests */,
 				0EEB48F819883E5000FBF84D /* Products */,
+				0ED372051988EC36007CA288 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,19 +187,22 @@
 			children = (
 				0EEB48F719883E5000FBF84D /* RemoteMouse.app */,
 				0EEB490919883E5000FBF84D /* RemoteMouseTests.xctest */,
+				0ED371DB1988E878007CA288 /* RemoteMouseMac.app */,
+				0ED371EC1988E879007CA288 /* RemoteMouseMacTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0EEB48F919883E5000FBF84D /* RemoteMouse */ = {
+		0EEB48F919883E5000FBF84D /* RemoteMouseIOS */ = {
 			isa = PBXGroup;
 			children = (
 				0EEB48FC19883E5000FBF84D /* AppDelegate.swift */,
-				0EEB48FE19883E5000FBF84D /* ViewController.swift */,
 				0EEB490019883E5000FBF84D /* Main.storyboard */,
+				0E284BA519884B230014024A /* SlaveTableViewController.swift */,
 				0EEB490319883E5000FBF84D /* Images.xcassets */,
 				0EEB48FA19883E5000FBF84D /* Supporting Files */,
 			);
+			name = RemoteMouseIOS;
 			path = RemoteMouse;
 			sourceTree = "<group>";
 		};
@@ -98,7 +220,8 @@
 				0EEB490F19883E5000FBF84D /* RemoteMouseTests.swift */,
 				0EEB490D19883E5000FBF84D /* Supporting Files */,
 			);
-			path = RemoteMouseTests;
+			name = RemoteMouseTests;
+			path = ../RemoteMouseTests;
 			sourceTree = "<group>";
 		};
 		0EEB490D19883E5000FBF84D /* Supporting Files */ = {
@@ -112,6 +235,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0ED371DA1988E878007CA288 /* RemoteMouseMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0ED371F41988E879007CA288 /* Build configuration list for PBXNativeTarget "RemoteMouseMac" */;
+			buildPhases = (
+				0ED371D71988E878007CA288 /* Sources */,
+				0ED371D81988E878007CA288 /* Frameworks */,
+				0ED371D91988E878007CA288 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RemoteMouseMac;
+			productName = RemoteMouseMac;
+			productReference = 0ED371DB1988E878007CA288 /* RemoteMouseMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0ED371EB1988E879007CA288 /* RemoteMouseMacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0ED371F71988E879007CA288 /* Build configuration list for PBXNativeTarget "RemoteMouseMacTests" */;
+			buildPhases = (
+				0ED371E81988E879007CA288 /* Sources */,
+				0ED371E91988E879007CA288 /* Frameworks */,
+				0ED371EA1988E879007CA288 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0ED371EE1988E879007CA288 /* PBXTargetDependency */,
+				0ED371FB1988E87A007CA288 /* PBXTargetDependency */,
+			);
+			name = RemoteMouseMacTests;
+			productName = RemoteMouseMacTests;
+			productReference = 0ED371EC1988E879007CA288 /* RemoteMouseMacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		0EEB48F619883E5000FBF84D /* RemoteMouse */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0EEB491319883E5000FBF84D /* Build configuration list for PBXNativeTarget "RemoteMouse" */;
@@ -156,8 +315,16 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = LOL;
 				TargetAttributes = {
+					0ED371DA1988E878007CA288 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					0ED371EB1988E879007CA288 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 0ED371DA1988E878007CA288;
+					};
 					0EEB48F619883E5000FBF84D = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 87N7L2N27G;
 					};
 					0EEB490819883E5000FBF84D = {
 						CreatedOnToolsVersion = 6.0;
@@ -180,11 +347,29 @@
 			targets = (
 				0EEB48F619883E5000FBF84D /* RemoteMouse */,
 				0EEB490819883E5000FBF84D /* RemoteMouseTests */,
+				0ED371DA1988E878007CA288 /* RemoteMouseMac */,
+				0ED371EB1988E879007CA288 /* RemoteMouseMacTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0ED371D91988E878007CA288 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0ED371E41988E878007CA288 /* Images.xcassets in Resources */,
+				0ED371E71988E878007CA288 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0ED371EA1988E879007CA288 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0EEB48F519883E5000FBF84D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -204,12 +389,31 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0ED371D71988E878007CA288 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0ED371E21988E878007CA288 /* AppDelegate.swift in Sources */,
+				0ED372001988E972007CA288 /* NetworkHelper.swift in Sources */,
+				0ED371E01988E878007CA288 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0ED371E81988E879007CA288 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0ED371F31988E879007CA288 /* RemoteMouseMacTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0EEB48F319883E5000FBF84D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EEB48FF19883E5000FBF84D /* ViewController.swift in Sources */,
 				0EEB48FD19883E5000FBF84D /* AppDelegate.swift in Sources */,
+				0ED371FF1988E972007CA288 /* NetworkHelper.swift in Sources */,
+				0E284BA619884B230014024A /* SlaveTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +428,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0ED371EE1988E879007CA288 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0ED371DA1988E878007CA288 /* RemoteMouseMac */;
+			targetProxy = 0ED371ED1988E879007CA288 /* PBXContainerItemProxy */;
+		};
+		0ED371FB1988E87A007CA288 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0ED371DA1988E878007CA288 /* RemoteMouseMac */;
+			targetProxy = 0ED371FA1988E87A007CA288 /* PBXContainerItemProxy */;
+		};
 		0EEB490B19883E5000FBF84D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0EEB48F619883E5000FBF84D /* RemoteMouse */;
@@ -232,6 +446,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		0ED371E51988E878007CA288 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0ED371E61988E878007CA288 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
 		0EEB490019883E5000FBF84D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -243,6 +465,80 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0ED371F51988E879007CA288 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RemoteMouseMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		0ED371F61988E879007CA288 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = RemoteMouseMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		0ED371F81988E879007CA288 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RemoteMouseMac.app/Contents/MacOS/RemoteMouseMac";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RemoteMouseMacTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		0ED371F91988E879007CA288 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RemoteMouseMac.app/Contents/MacOS/RemoteMouseMac";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RemoteMouseMacTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
 		0EEB491119883E5000FBF84D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -327,9 +623,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alexander Timokhin (FZWGS35L72)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexander Timokhin (FZWGS35L72)";
 				INFOPLIST_FILE = RemoteMouse/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7BA07B66-DB6D-4C25-977F-336157BA03FF";
 			};
 			name = Debug;
 		};
@@ -338,9 +638,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alexander Timokhin (FZWGS35L72)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alexander Timokhin (FZWGS35L72)";
 				INFOPLIST_FILE = RemoteMouse/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7BA07B66-DB6D-4C25-977F-336157BA03FF";
 			};
 			name = Release;
 		};
@@ -381,6 +685,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0ED371F41988E879007CA288 /* Build configuration list for PBXNativeTarget "RemoteMouseMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0ED371F51988E879007CA288 /* Debug */,
+				0ED371F61988E879007CA288 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0ED371F71988E879007CA288 /* Build configuration list for PBXNativeTarget "RemoteMouseMacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0ED371F81988E879007CA288 /* Debug */,
+				0ED371F91988E879007CA288 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		0EEB48F219883E5000FBF84D /* Build configuration list for PBXProject "RemoteMouse" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -397,6 +717,7 @@
 				0EEB491519883E5000FBF84D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0EEB491619883E5000FBF84D /* Build configuration list for PBXNativeTarget "RemoteMouseTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +726,7 @@
 				0EEB491819883E5000FBF84D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
