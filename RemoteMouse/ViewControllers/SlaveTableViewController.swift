@@ -30,6 +30,11 @@ class SlaveTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
+        
+        UIView.animateWithDuration(10.0, animations: {
+            self.navigationController.toolbar.frame = CGRect(x:0.0, y:10.0, width:10.0, height:0.0)
+            })
+        
         return 1
     }
 
