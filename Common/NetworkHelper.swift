@@ -15,13 +15,18 @@ let BonjourPort:Int32     = 6543
 
 //completion block
 typealias NetworkHelperRegisterCompletion = (NSNetService!, errorDict:[NSObject:AnyObject]?)->Void
+typealias NetworkHelperFindActiveServiceCompletion = (Array<NSNetService>?)->Void
 
-class NetworkHelper: NSObject, NSNetServiceDelegate {
+class NetworkHelper: NSObject, NSNetServiceDelegate, NSNetServiceBrowserDelegate {
     
     
-    var registerCompletionClosure:NetworkHelperRegisterCompletion?;
-    
-    
+    var registerCompletionClosure:NetworkHelperRegisterCompletion?
+    var findActiveServicesClosure:NetworkHelperFindActiveServiceCompletion?
+    var activeServices = [NSNetService]()
+    var browser = NSNetServiceBrowser()
+///
+/// MARK: Public
+///
     func registerService(completion:NetworkHelperRegisterCompletion? = nil)->NSNetService{
         
         self.registerCompletionClosure = completion;
@@ -38,8 +43,19 @@ class NetworkHelper: NSObject, NSNetServiceDelegate {
         netService.stop()
     }
  
+    func findActiveServices(completion:NetworkHelperFindActiveServiceCompletion?=nil)->Void{
+        //prepare
+        self.findActiveServicesClosure = completion
+        activeServices.removeAll(keepCapacity: true)
+
+        //let's go
+        browser.delegate = self
+        browser.searchForServicesOfType(BonjourType, inDomain: BonjourDomain)
+    }
   
-////delegate netService
+///
+/// MARK: NetService Delegate
+///
     func netServiceDidPublish(sender: NSNetService!) {
         println("Service did register with name \(sender.name)");
         if  let completion:NetworkHelperRegisterCompletion = self.registerCompletionClosure{
@@ -55,7 +71,44 @@ class NetworkHelper: NSObject, NSNetServiceDelegate {
         }
 
     }
-}
+///
+/// MARK: NetServiceBrowser Delegate
+///
+    
+    func netServiceBrowser(aNetServiceBrowser: NSNetServiceBrowser!, didNotSearch errorDict: [NSObject : AnyObject]!) {
+        if let completion = self.findActiveServicesClosure{
+            completion(nil);
+        }
+    }
+    
+    func netServiceBrowser(aNetServiceBrowser: NSNetServiceBrowser!, didFindService aNetService: NSNetService!, moreComing: Bool) {
+        activeServices.append(aNetService);
+        
+        //notify
+        if (!moreComing){
+            if let completion = self.findActiveServicesClosure{
+                completion(activeServices);
+            }
+        }
+        
+        
+    }
+    
+    func netServiceBrowser(aNetServiceBrowser: NSNetServiceBrowser!, didRemoveService aNetService: NSNetService!, moreComing: Bool) {
+        //remove item
+        let index = find(activeServices, aNetService);
+        if let indexExist = index {
+            activeServices.removeAtIndex(indexExist);
+        }
+
+        //notify
+        if (!moreComing){
+            if let completion = self.findActiveServicesClosure{
+                completion(activeServices);
+            }
+        }
+    }
+};
 
 
 

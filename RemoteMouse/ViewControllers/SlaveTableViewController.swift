@@ -10,6 +10,10 @@ import UIKit
 
 class SlaveTableViewController: UITableViewController {
 
+    var activeServices = Array<NSNetService>()
+    let networkHelper = NetworkHelper()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +22,14 @@ class SlaveTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        networkHelper.findActiveServices(){
+            (services: Array<NSNetService>?) in
+                if let serv = services{
+                    self.activeServices = serv
+                    self.tableView.reloadData()
+                }
+        };
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,25 +42,20 @@ class SlaveTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        
-        UIView.animateWithDuration(10.0, animations: {
-            self.navigationController.toolbar.frame = CGRect(x:0.0, y:10.0, width:10.0, height:0.0)
-            })
-        
         return 1
     }
 
     override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 1
+        return self.activeServices.count
     }
 
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell? {
         let cell = tableView.dequeueReusableCellWithIdentifier("SlaveCell", forIndexPath: indexPath) as UITableViewCell
          // Configure the cell...
-        cell.textLabel.text = "GGG2";
+        cell.textLabel.text =  self.activeServices[indexPath.row].name;
         return cell
     }
     
