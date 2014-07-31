@@ -16,10 +16,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         // Insert code here to initialize your application
-        netService = networkHelper.registerService(){
-            (netService:NSNetService!, errorDict:[NSObject:AnyObject]?) in
-                println (netService.name);
-            };
+        netService = networkHelper.registerService(registrationCompletion: {
+                (netService:NSNetService!, errorDict:[NSObject:AnyObject]?)->Void in
+                    println (netService.name)
+            },
+                clientDidConnectCompletion: {
+                (inputSteam:NSInputStream,outputStream:NSOutputStream) ->Void in
+                    
+                    var byteData:[UInt8] = [4]
+                    outputStream.write(byteData, maxLength: sizeof(UInt8));
+                   
+            })
+       
+        
     }
 
     func applicationWillTerminate(aNotification: NSNotification?) {
