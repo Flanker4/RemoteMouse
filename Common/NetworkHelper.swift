@@ -10,13 +10,13 @@ import Foundation
 let BonjourDomain   = "local."
 let BonjourType     = "_remotemouse._tcp."
 let BonjourName     = "GG"
-let BonjourPort:Int32     = 6543
+let BonjourPort:Int32     = 6544
 
 
 //completion block
 typealias NetworkHelperRegisterCompletion = (NSNetService!, errorDict:[NSObject:AnyObject]?)->Void
 typealias NetworkHelperFindActiveServiceCompletion = (Array<NSNetService>?)->Void
-typealias NetworkHelperReceiveByteClosure = (UInt8)->Void
+typealias NetworkHelperReceiveByteClosure = (Point)->Void
 typealias NetworkHelperClinetDidConnect = (inputSteam:NSInputStream,outputStream:NSOutputStream)->Void
 
 
@@ -37,11 +37,11 @@ class NetworkHelper: NSObject, NSNetServiceDelegate, NSNetServiceBrowserDelegate
 ///
 /// MARK: Public
 ///
-    func registerService(registrationCompletion:NetworkHelperRegisterCompletion? = nil, clientDidConnectCompletion:NetworkHelperClinetDidConnect?=nil)->NSNetService{
+    func registerService(registrationCompletion:NetworkHelperRegisterCompletion? = nil, callback:NetworkHelperReceiveByteClosure?=nil)->NSNetService{
         
         self.registerCompletionClosure = registrationCompletion
-        self.clientDidConnectCallback = clientDidConnectCompletion
-        let netService = NSNetService(domain: BonjourDomain, type: BonjourType, name: BonjourName,port: BonjourPort);
+        self.readerCallback = callback
+        let netService = NSNetService(domain: BonjourDomain, type: BonjourType, name: BonjourName);
         netService.scheduleInRunLoop(NSRunLoop.currentRunLoop(), forMode: kCFRunLoopDefaultMode)
         netService.delegate = self
         netService.publishWithOptions(NSNetServiceOptions.ListenForConnections)
@@ -63,21 +63,22 @@ class NetworkHelper: NSObject, NSNetServiceDelegate, NSNetServiceBrowserDelegate
         browser.searchForServicesOfType(BonjourType, inDomain: BonjourDomain)
     }
   
-    func connectToService(service:NSNetService, callback:NetworkHelperReceiveByteClosure?=nil)->Bool{
+    func connectToService(service:NSNetService, didConnectCallback:NetworkHelperClinetDidConnect?=nil)->Bool{
         var success                         = false
         var inStream:       NSInputStream?  = nil
         var outStream:      NSOutputStream? = nil
         
-        self.readerCallback = callback
-        //service.resolveWithTimeout(5)
+        self.clientDidConnectCallback = didConnectCallback
+        service.resolveWithTimeout(5)
        
         success = service.getInputStream(&inStream, outputStream: &outStream)
         
-        if  (success) {
-            self.inputStream  = inStream;
-            self.outputStream = outStream;
+        if  (success)&&(inStream)&&(outStream) {
+            self.openStreams([inStream!,outStream!])
             
-            self.openStreams([self.inputStream!,self.outputStream!])
+            if let complition = self.clientDidConnectCallback{
+                complition (inputSteam: self.inputStream!, outputStream: self.outputStream!)
+            }
         }else{
             self.closeStreams([self.inputStream!,self.outputStream!])
         }
@@ -86,11 +87,13 @@ class NetworkHelper: NSObject, NSNetServiceDelegate, NSNetServiceBrowserDelegate
 ///
 /// MARK: private
 ///
-    func openStreams(streams:[NSStream]){
+    func openStreams(streams:[NSStream],setDelegate:Bool = true){
         self.inputStream = streams[0] as? NSInputStream;
         self.outputStream = streams[1] as? NSOutputStream;
         for stream in streams{
-            stream.delegate = self
+            if setDelegate{
+                stream.delegate = self
+            }
             stream.scheduleInRunLoop(NSRunLoop.currentRunLoop(), forMode: NSDefaultRunLoopMode)
             stream.open()
         }
@@ -128,11 +131,21 @@ class NetworkHelper: NSObject, NSNetServiceDelegate, NSNetServiceBrowserDelegate
     }
     
     func netService(sender: NSNetService!, didAcceptConnectionWithInputStream inputStream: NSInputStream!, outputStream: NSOutputStream!){
-        self.openStreams([inputStream,outputStream]);
-        if let complition = self.clientDidConnectCallback{
-            complition (inputSteam: inputStream, outputStream: outputStream)
+        self.inputStream = inputStream;
+        self.outputStream = outputStream
+        
+        if let stream = self.inputStream{
+            stream.delegate = self;
         }
         
+        self.inputStream?.scheduleInRunLoop(NSRunLoop.currentRunLoop(), forMode: NSDefaultRunLoopMode)
+        self.outputStream?.scheduleInRunLoop(NSRunLoop.currentRunLoop(), forMode: NSDefaultRunLoopMode)
+        
+        self.inputStream?.open()
+        self.outputStream?.open()
+        
+        
+       //self.openStreams([inputStream!,outputStream!],setDelegate: true);
     }
 
 ///
@@ -188,20 +201,23 @@ class NetworkHelper: NSObject, NSNetServiceDelegate, NSNetServiceBrowserDelegate
                 println("")
             case NSStreamEvent.HasBytesAvailable:
                 println("Go")
-                var    b:        UInt8   = 0;
-                var    bytesRead =  self.inputStream!.read(&b, maxLength: sizeof(UInt8))
+                var buffer = [UInt8](count: 2, repeatedValue: 0)
+
+                
+                 var    bytesRead =  self.inputStream!.read(&buffer, maxLength: sizeof(UInt8)*buffer.count)
 
                 
                 if (bytesRead > 0) {
                     // Do nothing; we'll handle EOF and error in the
                     // NSStreamEventEndEncountered and NSStreamEventErrorOccurred case,
                     // respectively.
-                    println(b);
+                    let point = Point(v:Int16(buffer[0])-128,h:Int16(buffer[1])-128)
                     if let closure = self.readerCallback{
-                        closure(b)
+                        closure(point)
                     }
                 }
             case NSStreamEvent.HasSpaceAvailable:
+                
                 println("")
             case NSStreamEvent.ErrorOccurred:
                 println("")

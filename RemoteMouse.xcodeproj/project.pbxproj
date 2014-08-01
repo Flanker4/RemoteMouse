@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0E284BA619884B230014024A /* SlaveTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E284BA519884B230014024A /* SlaveTableViewController.swift */; };
+		0E9DFC5A198BA22C009DA0AE /* QServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9DFC58198BA22C009DA0AE /* QServer.m */; };
+		0E9DFC5B198BA22C009DA0AE /* QServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9DFC58198BA22C009DA0AE /* QServer.m */; };
+		0EA1740F198ADBCC00C52F61 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA1740E198ADBCC00C52F61 /* EventViewController.swift */; };
 		0ED371E01988E878007CA288 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED371DF1988E878007CA288 /* main.swift */; };
 		0ED371E21988E878007CA288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED371E11988E878007CA288 /* AppDelegate.swift */; };
 		0ED371E41988E878007CA288 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ED371E31988E878007CA288 /* Images.xcassets */; };
@@ -49,6 +52,10 @@
 
 /* Begin PBXFileReference section */
 		0E284BA519884B230014024A /* SlaveTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlaveTableViewController.swift; path = ViewControllers/SlaveTableViewController.swift; sourceTree = "<group>"; };
+		0E9DFC58198BA22C009DA0AE /* QServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QServer.m; path = Common/QServer.m; sourceTree = "<group>"; };
+		0E9DFC59198BA22C009DA0AE /* QServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QServer.h; path = Common/QServer.h; sourceTree = "<group>"; };
+		0E9DFC5C198BA3EA009DA0AE /* Swift-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Swift-Bridging-Header.h"; path = "Common/Swift-Bridging-Header.h"; sourceTree = "<group>"; };
+		0EA1740E198ADBCC00C52F61 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventViewController.swift; path = ViewControllers/EventViewController.swift; sourceTree = "<group>"; };
 		0ED371DB1988E878007CA288 /* RemoteMouseMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteMouseMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ED371DE1988E878007CA288 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0ED371DF1988E878007CA288 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -155,6 +162,9 @@
 		0ED371FD1988E90E007CA288 /* RemoteMouseCommon */ = {
 			isa = PBXGroup;
 			children = (
+				0E9DFC5C198BA3EA009DA0AE /* Swift-Bridging-Header.h */,
+				0E9DFC58198BA22C009DA0AE /* QServer.m */,
+				0E9DFC59198BA22C009DA0AE /* QServer.h */,
 				0ED371FE1988E972007CA288 /* NetworkHelper.swift */,
 			);
 			name = RemoteMouseCommon;
@@ -199,6 +209,7 @@
 				0EEB48FC19883E5000FBF84D /* AppDelegate.swift */,
 				0EEB490019883E5000FBF84D /* Main.storyboard */,
 				0E284BA519884B230014024A /* SlaveTableViewController.swift */,
+				0EA1740E198ADBCC00C52F61 /* EventViewController.swift */,
 				0EEB490319883E5000FBF84D /* Images.xcassets */,
 				0EEB48FA19883E5000FBF84D /* Supporting Files */,
 			);
@@ -393,6 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E9DFC5B198BA22C009DA0AE /* QServer.m in Sources */,
 				0ED371E21988E878007CA288 /* AppDelegate.swift in Sources */,
 				0ED372001988E972007CA288 /* NetworkHelper.swift in Sources */,
 				0ED371E01988E878007CA288 /* main.swift in Sources */,
@@ -411,7 +423,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E9DFC5A198BA22C009DA0AE /* QServer.m in Sources */,
 				0EEB48FD19883E5000FBF84D /* AppDelegate.swift in Sources */,
+				0EA1740F198ADBCC00C52F61 /* EventViewController.swift in Sources */,
 				0ED371FF1988E972007CA288 /* NetworkHelper.swift in Sources */,
 				0E284BA619884B230014024A /* SlaveTableViewController.swift in Sources */,
 			);
@@ -577,6 +591,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Common/Swift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -613,6 +628,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Common/Swift-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -692,6 +708,7 @@
 				0ED371F61988E879007CA288 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0ED371F71988E879007CA288 /* Build configuration list for PBXNativeTarget "RemoteMouseMacTests" */ = {
 			isa = XCConfigurationList;
@@ -700,6 +717,7 @@
 				0ED371F91988E879007CA288 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0EEB48F219883E5000FBF84D /* Build configuration list for PBXProject "RemoteMouse" */ = {
 			isa = XCConfigurationList;

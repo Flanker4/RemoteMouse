@@ -61,11 +61,19 @@ class SlaveTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         networkHelper.connectToService(self.activeServices[indexPath.row],
-            { (byte:UInt8) in
-                println(byte);
+            didConnectCallback: {
+                (inputSteam:NSInputStream,outputStream:NSOutputStream) ->Void in
+                
+                  self.performSegueWithIdentifier("showEventController", sender: outputStream)
+                
+                
             })
+
+        
     }
 
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
@@ -101,14 +109,17 @@ class SlaveTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // #pragma mark - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        let ev = segue.destinationViewController as EventViewController
+        ev.outputStream = sender as? NSOutputStream
+
     }
-    */
+
 
 }

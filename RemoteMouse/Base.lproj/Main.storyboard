@@ -26,9 +26,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="1k7-nz-5M6" kind="show" id="Jnu-Ve-Uyv"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -47,15 +44,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="26c-bb-IjR"/>
+                    <connections>
+                        <segue destination="1k7-nz-5M6" kind="show" identifier="showEventController" id="oZU-pm-JWl"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZc-Dx-qG7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="161" y="608"/>
+            <point key="canvasLocation" x="-84" y="537"/>
         </scene>
-        <!--View Controller-->
+        <!--Event View Controller-->
         <scene sceneID="Kfx-2m-fWG">
             <objects>
-                <viewController id="1k7-nz-5M6" sceneMemberID="viewController">
+                <viewController id="1k7-nz-5M6" customClass="EventViewController" customModule="RemoteMouse" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v1n-v6-Sxp"/>
                         <viewControllerLayoutGuide type="bottom" id="haL-vD-tSn"/>
@@ -81,6 +81,9 @@
                                 <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="183" y="95" width="114" height="176"/>
                                 </variation>
+                                <connections>
+                                    <action selector="pressUp:" destination="1k7-nz-5M6" eventType="touchUpInside" id="lqa-a7-SRG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3In-8r-9YU">
                                 <rect key="frame" x="289" y="200" width="80" height="80"/>
@@ -99,6 +102,9 @@
                                 <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="183" y="95" width="114" height="176"/>
                                 </variation>
+                                <connections>
+                                    <action selector="pressRight:" destination="1k7-nz-5M6" eventType="touchUpInside" id="Ixw-RX-K1f"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erY-mi-X0U">
                                 <rect key="frame" x="130" y="200" width="80" height="80"/>
@@ -117,6 +123,9 @@
                                 <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="183" y="95" width="114" height="176"/>
                                 </variation>
+                                <connections>
+                                    <action selector="pressLeft:" destination="1k7-nz-5M6" eventType="touchUpInside" id="1Pm-2i-k9q"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2nn-KC-SEV">
                                 <rect key="frame" x="210" y="279" width="80" height="80"/>
@@ -135,6 +144,9 @@
                                 <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="183" y="95" width="114" height="176"/>
                                 </variation>
+                                <connections>
+                                    <action selector="pressDown:" destination="1k7-nz-5M6" eventType="touchUpInside" id="HBP-id-Kzg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

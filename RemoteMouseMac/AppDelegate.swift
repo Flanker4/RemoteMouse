@@ -8,26 +8,19 @@
 
 import Cocoa
 
-class AppDelegate: NSObject, NSApplicationDelegate {
-                            
+class AppDelegate: NSObject, NSApplicationDelegate ,QServerDelegate{
     @IBOutlet var window: NSWindow
     let networkHelper = NetworkHelper()
+    var server:QServer?
+    
     var netService:NSNetService?;
 
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         // Insert code here to initialize your application
-        netService = networkHelper.registerService(registrationCompletion: {
-                (netService:NSNetService!, errorDict:[NSObject:AnyObject]?)->Void in
-                    println (netService.name)
-            },
-                clientDidConnectCompletion: {
-                (inputSteam:NSInputStream,outputStream:NSOutputStream) ->Void in
-                    
-                    var byteData:[UInt8] = [4]
-                    outputStream.write(byteData, maxLength: sizeof(UInt8));
-                   
-            })
-       
+        self.server = QServer(domain:BonjourDomain, type:BonjourType, name:BonjourName, preferredPort:0);
+        self.server!.delegate = self
+        self.server!.start()
+
         
     }
 
@@ -35,6 +28,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
         networkHelper.stopService(netService!);
     }
+
+    func server(server: QServer!, connectionForInputStream inputStream: NSInputStream!, outputStream: NSOutputStream!) -> AnyObject! {
+        networkHelper.openStreams([inputStream,outputStream], setDelegate: true)
+        networkHelper.readerCallback = { (diff:Point) in
+            
+            var point:CGPoint  = NSEvent.mouseLocation()
+            point.y = NSScreen.mainScreen().frame.size.height - point.y
+            point.y-=CGFloat(diff.v)
+            point.x+=CGFloat(diff.h)
+            CGWarpMouseCursorPosition(point);
+            
+        }
+        return self
+    }
+    
+    func serverDidStart(server: QServer!) {
+         println (server.name)
+    }
+
+    
 
 
 }
