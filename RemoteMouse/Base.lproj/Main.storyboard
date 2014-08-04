@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eXA-6d-pcL">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
     </dependencies>
     <scenes>
@@ -63,108 +64,33 @@
                     <view key="view" contentMode="scaleToFill" id="ZEq-c5-v6d">
                         <rect key="frame" x="0.0" y="0.0" width="500" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t6v-6Q-dJu">
-                                <rect key="frame" x="210" y="120" width="80" height="80"/>
-                                <color key="backgroundColor" red="0.95686274510000002" green="0.56470588239999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="RVp-ZB-jGo"/>
-                                    <constraint firstAttribute="width" constant="80" id="VPW-VU-vj5"/>
-                                </constraints>
-                                <state key="normal" title="^"/>
-                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="193" y="95" width="114" height="176"/>
-                                </variation>
-                                <variation key="widthClass=regular" ambiguous="YES">
-                                    <rect key="frame" x="263" y="95" width="114" height="96"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="183" y="95" width="114" height="176"/>
-                                </variation>
-                                <connections>
-                                    <action selector="pressUp:" destination="1k7-nz-5M6" eventType="touchUpInside" id="lqa-a7-SRG"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3In-8r-9YU">
-                                <rect key="frame" x="289" y="200" width="80" height="80"/>
-                                <color key="backgroundColor" red="0.95686274510000002" green="0.56470588239999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="4xk-MS-VqO"/>
-                                    <constraint firstAttribute="height" constant="80" id="NEg-ui-BWN"/>
-                                </constraints>
-                                <state key="normal" title=">"/>
-                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="193" y="95" width="114" height="176"/>
-                                </variation>
-                                <variation key="widthClass=regular" ambiguous="YES">
-                                    <rect key="frame" x="263" y="95" width="114" height="96"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="183" y="95" width="114" height="176"/>
-                                </variation>
-                                <connections>
-                                    <action selector="pressRight:" destination="1k7-nz-5M6" eventType="touchUpInside" id="Ixw-RX-K1f"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="erY-mi-X0U">
-                                <rect key="frame" x="130" y="200" width="80" height="80"/>
-                                <color key="backgroundColor" red="0.95686274510000002" green="0.56470588239999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="qhM-uz-gBa"/>
-                                    <constraint firstAttribute="height" constant="80" id="zWs-6W-fye"/>
-                                </constraints>
-                                <state key="normal" title="&lt;"/>
-                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="193" y="95" width="114" height="176"/>
-                                </variation>
-                                <variation key="widthClass=regular" ambiguous="YES">
-                                    <rect key="frame" x="263" y="95" width="114" height="96"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="183" y="95" width="114" height="176"/>
-                                </variation>
-                                <connections>
-                                    <action selector="pressLeft:" destination="1k7-nz-5M6" eventType="touchUpInside" id="1Pm-2i-k9q"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2nn-KC-SEV">
-                                <rect key="frame" x="210" y="279" width="80" height="80"/>
-                                <color key="backgroundColor" red="0.95686274510000002" green="0.56470588239999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="6zK-pz-87F"/>
-                                    <constraint firstAttribute="width" constant="80" id="fgm-Ek-lGv"/>
-                                </constraints>
-                                <state key="normal" title="v"/>
-                                <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="193" y="95" width="114" height="176"/>
-                                </variation>
-                                <variation key="widthClass=regular" ambiguous="YES">
-                                    <rect key="frame" x="263" y="95" width="114" height="96"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="183" y="95" width="114" height="176"/>
-                                </variation>
-                                <connections>
-                                    <action selector="pressDown:" destination="1k7-nz-5M6" eventType="touchUpInside" id="HBP-id-Kzg"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="t6v-6Q-dJu" secondAttribute="centerX" id="4V6-S5-i87"/>
-                            <constraint firstItem="2nn-KC-SEV" firstAttribute="leading" secondItem="t6v-6Q-dJu" secondAttribute="leading" id="98N-YM-OGx"/>
-                            <constraint firstItem="3In-8r-9YU" firstAttribute="top" secondItem="t6v-6Q-dJu" secondAttribute="bottom" id="GmF-zN-jFx"/>
-                            <constraint firstItem="erY-mi-X0U" firstAttribute="top" secondItem="t6v-6Q-dJu" secondAttribute="bottom" id="Yj5-GZ-SSI"/>
-                            <constraint firstItem="3In-8r-9YU" firstAttribute="leading" secondItem="t6v-6Q-dJu" secondAttribute="trailing" constant="-1" id="fFN-Vd-lxh"/>
-                            <constraint firstItem="t6v-6Q-dJu" firstAttribute="leading" secondItem="erY-mi-X0U" secondAttribute="trailing" id="vCM-N1-XBB"/>
-                            <constraint firstAttribute="centerY" secondItem="t6v-6Q-dJu" secondAttribute="centerY" constant="80" id="x5c-GU-2dL"/>
-                            <constraint firstItem="2nn-KC-SEV" firstAttribute="top" secondItem="t6v-6Q-dJu" secondAttribute="bottom" constant="79" id="z4L-t3-Epv"/>
-                        </constraints>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="8zy-yI-W2a" appends="YES" id="bD1-mf-gMe"/>
+                            <outletCollection property="gestureRecognizers" destination="kZU-sU-UZd" appends="YES" id="1Mp-L0-NM2"/>
+                            <outletCollection property="gestureRecognizers" destination="nMe-SZ-z4R" appends="YES" id="8qn-qU-aoH"/>
+                        </connections>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="500" height="480"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="heN-rK-Jgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="8zy-yI-W2a" userLabel="One Tap">
+                    <connections>
+                        <action selector="pressTap:" destination="1k7-nz-5M6" id="nA5-ol-NsJ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="kZU-sU-UZd" userLabel="Pan">
+                    <connections>
+                        <action selector="didPan:" destination="1k7-nz-5M6" id="Iq2-qp-Uzc"/>
+                    </connections>
+                </panGestureRecognizer>
+                <tapGestureRecognizer id="nMe-SZ-z4R" userLabel="Double Tap">
+                    <connections>
+                        <action selector="pressDoubleTap:" destination="1k7-nz-5M6" id="6m7-dQ-VeG"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="574" y="278"/>
         </scene>
