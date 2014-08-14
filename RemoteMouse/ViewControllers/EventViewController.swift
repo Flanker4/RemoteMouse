@@ -23,9 +23,11 @@ class EventViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     @IBAction func pressTap(sender: AnyObject) {
         self.sendMouseTap(1)
     }
+    
     
     @IBAction func didPan(sender: UIPanGestureRecognizer) {
         
@@ -65,7 +67,7 @@ class EventViewController: UIViewController {
             diff.v = max(diff.v, -127)
             diff.h = max(diff.h, -127)
             
-            var byteData:[UInt8] = [MouseEvent.Move.toRaw(), UInt8(diff.v+128), UInt8(diff.h+128)]
+            var byteData:[UInt8] = [ServerEvent.MouseMove.toRaw(), UInt8(diff.v+128), UInt8(diff.h+128)]
             if  let stream = self.outputStream{
                 stream.write(byteData, maxLength: sizeof(UInt8)*byteData.count);
             }
@@ -74,23 +76,9 @@ class EventViewController: UIViewController {
     }
     
     func sendMouseTap (tapCount:UInt8){
-        var byteData:[UInt8] = [MouseEvent.Tap.toRaw(), tapCount]
+        var byteData:[UInt8] = [ServerEvent.MouseTap.toRaw(), tapCount]
         if  let stream = self.outputStream{
             stream.write(byteData, maxLength: sizeof(UInt8)*byteData.count);
         }
     }
-    /*
-- (void)simulateMouseEvent:(CGEventType)eventType
-{
-// Get the current mouse position
-CGEventRef ourEvent = CGEventCreate(NULL);
-CGPoint mouseLocation = CGEventGetLocation(ourEvent);
-
-// Create and post the event
-CGEventRef event = CGEventCreateMouseEvent(CGEventSourceCreate(kCGEventSourceStateHIDSystemState), eventType, mouseLocation, kCGMouseButtonLeft);
-CGEventPost(kCGHIDEventTap, event);
-CFRelease(event);
-}
-*/
-
 }

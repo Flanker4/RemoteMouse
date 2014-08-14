@@ -8,14 +8,24 @@
 
 import Cocoa
 
+//➚
+//HEAVY NORTH EAST ARROW
+//Unicode: U+279A, UTF-8: E2 9E 9A
+//⇲
+//SOUTH EAST ARROW TO CORNER
+//Unicode: U+21F2, UTF-8: E2 87 B2
+
 class AppDelegate: NSObject, NSApplicationDelegate ,QServerDelegate{
     //
     // MARK: - var
     //
     @IBOutlet var window: NSWindow
-    @lazy let networkHelper = NetworkHelper()
-    @lazy let server        = QServer(domain:BonjourDomain, type:BonjourType, name:BonjourName, preferredPort:0);
-   
+    @lazy var networkHelper = NetworkHelper()
+    @lazy var server        = QServer(domain:BonjourDomain, type:BonjourType, name:BonjourName, preferredPort:0);
+    var statusItem: NSStatusItem?
+    
+    //UI
+    @IBOutlet var menu:         NSMenu
     //
     // MARK: - func
     //
@@ -33,8 +43,25 @@ class AppDelegate: NSObject, NSApplicationDelegate ,QServerDelegate{
         self.server.stop()
         self.server.deregister()
         
+        
+           self.statusItem!.title          = "⥰"
+        
     }
-
+    ///
+    /// Mark: UI
+    ///
+    @IBAction func menuQuit(sender: AnyObject) {
+        NSApplication.sharedApplication().terminate(nil)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1)
+        self.statusItem!.menu           = self.menu
+        self.statusItem!.title          = "⥰"
+        self.statusItem!.highlightMode  = true
+    }
     ///
     /// Mark: QServer delegate
     ///
@@ -44,18 +71,21 @@ class AppDelegate: NSObject, NSApplicationDelegate ,QServerDelegate{
         }
         
         self.server.deregister()
-        
+        self.statusItem!.title          = "⥹"
         networkHelper.openStreams([inputStream,outputStream])
-        networkHelper.readerCallback = { (mouseEvent:MouseEvent, diff:Point) in
+        networkHelper.readerCallback = { (mouseEvent:ServerEvent, data:Int...) in
             switch mouseEvent{
-            case .Move:
+            case .MouseMove:
                 var point:CGPoint  = NSEvent.mouseLocation()
                 point.y = NSScreen.mainScreen().frame.size.height - point.y
-                point.y+=CGFloat(diff.v)
-                point.x+=CGFloat(diff.h)
+                point.y+=CGFloat(data[0])
+                point.x+=CGFloat(data[1])
                 CGWarpMouseCursorPosition(point);
-            case .Tap:
+            case .MouseTap:
                 self.simulateMouseClick()
+            case .DidCloseServer:
+                self.applicationWillTerminate(nil)
+                self.server.start()
             }
             
         }
@@ -65,7 +95,14 @@ class AppDelegate: NSObject, NSApplicationDelegate ,QServerDelegate{
     func serverDidStart(server: QServer!) {
         println (server.name)
     }
-
+    
+    func server(server: QServer!, closeConnection connection: AnyObject!) {
+        
+    }
+    
+    func server(server: QServer!, didStopWithError error: NSError!) {
+        
+    }
     ///
     /// Mark: Utils
     ///
@@ -85,7 +122,7 @@ class AppDelegate: NSObject, NSApplicationDelegate ,QServerDelegate{
         dispatch_after(time, dispatch_get_main_queue(), {
             self.simulateMouseEvent(kCGEventLeftMouseUp)
             if  clickCount==1{
-                if  let comp= completion{
+                if  let comp = completion{
                     comp()
                 }
             }else{

@@ -12,14 +12,15 @@ let BonjourType     = "_remotemouse._tcp."
 let BonjourName     = "GG"
 let BonjourPort:Int32     = 6544
 
-enum MouseEvent:UInt8 {
-    case Move
-    case Tap
+enum ServerEvent:UInt8 {
+    case MouseMove
+    case MouseTap
+    case DidCloseServer
 }
 //completion block
 typealias NetworkHelperRegisterCompletion = (NSNetService!, errorDict:[NSObject:AnyObject]?)->Void
 typealias NetworkHelperFindActiveServiceCompletion = (Array<NSNetService>?)->Void
-typealias NetworkHelperReceiveByteClosure = (MouseEvent, Point)->Void
+typealias NetworkHelperReceiveByteClosure = (ServerEvent, data:Int...)->Void
 typealias NetworkHelperClinetDidConnect = (inputSteam:NSInputStream,outputStream:NSOutputStream)->Void
 
 
@@ -114,13 +115,15 @@ class NetworkHelper: NSObject, NSNetServiceDelegate, NSNetServiceBrowserDelegate
             stream.removeFromRunLoop(NSRunLoop.currentRunLoop(), forMode: NSDefaultRunLoopMode)
             stream.close()
         }
-        //wtf?
-        self.inputStream = nil;
-        self.outputStream = nil;
+       
     }
     
     func closeStreams(){
-        self.closeStreams([self.inputStream!,self.outputStream!])
+        if  (self.inputStream && self.outputStream){
+            self.closeStreams([self.inputStream!,self.outputStream!])
+        }
+        self.inputStream = nil;
+        self.outputStream = nil;
     }
     
 ///
@@ -203,39 +206,34 @@ class NetworkHelper: NSObject, NSNetServiceDelegate, NSNetServiceBrowserDelegate
 ///
     
     func stream(aStream: NSStream!, handleEvent eventCode: NSStreamEvent) {
-        switch eventCode{
-             case NSStreamEvent.HasBytesAvailable:
-                var buffer = [UInt8](count: 3, repeatedValue: 0)
-
+        if let closure = self.readerCallback{
+            switch eventCode{
+                case NSStreamEvent.HasBytesAvailable:
+                    var buffer = [UInt8](count: 3, repeatedValue: 0)
+                    var    bytesRead =  self.inputStream!.read(&buffer, maxLength: sizeof(UInt8)*buffer.count)
                 
-                 var    bytesRead =  self.inputStream!.read(&buffer, maxLength: sizeof(UInt8)*buffer.count)
-
                 
-                if (bytesRead > 0) {
-                    
-                    
-                    // Do nothing; we'll handle EOF and error in the
-                    // NSStreamEventEndEncountered and NSStreamEventErrorOccurred case,
-                    // respectively.
-                    var point = Point(v: 0, h: 0);
-                    if let mouseEvent = MouseEvent.fromRaw(buffer[0]){
-                        switch mouseEvent{
-                            case .Move:
-                                point = Point(v:Int16(buffer[1])-128,h:Int16(buffer[2])-128)
-                            
-                            case .Tap:
-                                point = Point(v:Int16(buffer[1]),h:Int16(buffer[1]))
-                        }
-                        if let closure = self.readerCallback{
-                            closure(mouseEvent,point)
+                    if (bytesRead > 0) {
+                        var point = Point(v: 0, h: 0);
+                        if let mouseEvent = ServerEvent.fromRaw(buffer[0]){
+                            switch mouseEvent{
+                            case .MouseMove:
+                                closure(mouseEvent,data: Int(buffer[1]) - 128, Int(buffer[2]) - 128)
+                            case .MouseTap:
+                                closure(mouseEvent,data: Int(buffer[1]))
+                            case .DidCloseServer:
+                                assert(false, "Invalid event")
+                            }
                         }
                     }
-                    
-                    
-                }
-        default:
-            var not = "not"
+            case NSStreamEvent.EndEncountered, NSStreamEvent.ErrorOccurred:
+                closure(ServerEvent.DidCloseServer)
+            default:
+                var not = "not"
+            }
+
         }
+
     }
 };
 
