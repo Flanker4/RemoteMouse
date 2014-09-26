@@ -19,7 +19,7 @@ class SlaveTableViewController: UITableViewController, UINavigationControllerDel
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-        self.navigationController.delegate = self
+        self.navigationController?.delegate = self
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
@@ -40,27 +40,27 @@ class SlaveTableViewController: UITableViewController, UINavigationControllerDel
 
     // #pragma mark - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
     }
 
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
         return self.activeServices.count
     }
 
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell? {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SlaveCell", forIndexPath: indexPath) as UITableViewCell
          // Configure the cell...
-        cell.textLabel.text =  self.activeServices[indexPath.row].name;
+        cell.textLabel?.text =  self.activeServices[indexPath.row].name;
         return cell
     }
     
-    override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         networkHelper.connectToService(self.activeServices[indexPath.row],
             didConnectCallback: {
                 (inputSteam:NSInputStream,outputStream:NSOutputStream) ->Void in
@@ -118,10 +118,10 @@ class SlaveTableViewController: UITableViewController, UINavigationControllerDel
     // #pragma mark - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-        let ev = segue.destinationViewController as EventViewController
+        let ev = segue.destinationViewController as EventsTabBarViewController
         ev.outputStream = sender as? NSOutputStream
 
     }

@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eXA-6d-pcL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eXA-6d-pcL">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
+        <deployment defaultVersion="1808" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--Root View Controller-->
         <scene sceneID="WZx-aZ-bCC">
             <objects>
                 <tableViewController id="936-3l-OQQ" customClass="SlaveTableViewController" customModule="RemoteMouse" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="830-Fg-c7Y">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="830-Fg-c7Y">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SlaveCell" textLabel="ICz-Br-NuK" style="IBUITableViewCellStyleDefault" id="AAi-I9-wXA">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SlaveCell" textLabel="ICz-Br-NuK" style="IBUITableViewCellStyleDefault" id="AAi-I9-wXA">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AAi-I9-wXA" id="7tk-cv-e3n">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -45,53 +46,89 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="26c-bb-IjR"/>
                     <connections>
-                        <segue destination="1k7-nz-5M6" kind="show" identifier="showEventController" id="oZU-pm-JWl"/>
+                        <segue destination="bJ9-mS-LAa" kind="show" identifier="showEventController" id="ahd-a8-5VI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZc-Dx-qG7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-84" y="537"/>
+            <point key="canvasLocation" x="-73" y="-37"/>
         </scene>
-        <!--Event View Controller-->
-        <scene sceneID="Kfx-2m-fWG">
+        <!--Tab_3_MotionViewController-->
+        <scene sceneID="ixU-ia-OCz">
             <objects>
-                <viewController id="1k7-nz-5M6" customClass="EventViewController" customModule="RemoteMouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="02k-UD-jOC" userLabel="Tab_3_MotionViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="v1n-v6-Sxp"/>
-                        <viewControllerLayoutGuide type="bottom" id="haL-vD-tSn"/>
+                        <viewControllerLayoutGuide type="top" id="X8z-xH-0H0"/>
+                        <viewControllerLayoutGuide type="bottom" id="TRe-Ej-3qL"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZEq-c5-v6d">
-                        <rect key="frame" x="0.0" y="0.0" width="500" height="480"/>
+                    <view key="view" contentMode="scaleToFill" id="9s7-4f-VRr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="8zy-yI-W2a" appends="YES" id="bD1-mf-gMe"/>
-                            <outletCollection property="gestureRecognizers" destination="kZU-sU-UZd" appends="YES" id="1Mp-L0-NM2"/>
-                            <outletCollection property="gestureRecognizers" destination="nMe-SZ-z4R" appends="YES" id="8qn-qU-aoH"/>
-                        </connections>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="500" height="480"/>
+                    <tabBarItem key="tabBarItem" title="Motion" id="yrw-Zh-DNm" userLabel="Item 3"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="heN-rK-Jgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="8zy-yI-W2a" userLabel="One Tap">
-                    <connections>
-                        <action selector="pressTap:" destination="1k7-nz-5M6" id="nA5-ol-NsJ"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="kZU-sU-UZd" userLabel="Pan">
-                    <connections>
-                        <action selector="didPan:" destination="1k7-nz-5M6" id="Iq2-qp-Uzc"/>
-                    </connections>
-                </panGestureRecognizer>
-                <tapGestureRecognizer id="nMe-SZ-z4R" userLabel="Double Tap">
-                    <connections>
-                        <action selector="pressDoubleTap:" destination="1k7-nz-5M6" id="6m7-dQ-VeG"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kls-xh-XE8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="574" y="278"/>
+            <point key="canvasLocation" x="786" y="1112"/>
+        </scene>
+        <!--Tab_2_TouchViewController-->
+        <scene sceneID="YQk-hQ-tiD">
+            <objects>
+                <viewController id="Fez-F1-B7b" userLabel="Tab_2_TouchViewController" customClass="IntelTouchEventViewController" customModule="RemoteMouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UOi-Nw-UD1"/>
+                        <viewControllerLayoutGuide type="bottom" id="6Xb-7n-dDR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="orc-8r-CUf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Intel Touch" id="Ebr-On-gQc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9M6-KO-Ihf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="786" y="464"/>
+        </scene>
+        <!--Tab_1_TouchViewController-->
+        <scene sceneID="7aI-fj-hwX">
+            <objects>
+                <viewController id="9fP-8Q-jvQ" userLabel="Tab_1_TouchViewController" customClass="TouchEventViewController" customModule="RemoteMouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nYi-zg-RIi"/>
+                        <viewControllerLayoutGuide type="bottom" id="J5W-VB-0XW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2St-Ec-CKX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Touch" id="9FL-ps-ccv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g5B-qG-Qsf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="786" y="-183"/>
+        </scene>
+        <!--Events Tab Bar View Controller-->
+        <scene sceneID="kvZ-04-bvV">
+            <objects>
+                <tabBarController id="bJ9-mS-LAa" customClass="EventsTabBarViewController" customModule="RemoteMouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="uji-ko-eQu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="9fP-8Q-jvQ" kind="relationship" relationship="viewControllers" id="4Nb-1A-BX7"/>
+                        <segue destination="Fez-F1-B7b" kind="relationship" relationship="viewControllers" id="Mm9-n8-tRM"/>
+                        <segue destination="02k-UD-jOC" kind="relationship" relationship="viewControllers" id="5M7-Ar-hkz"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oJO-V7-bwH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="58" y="66"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FYT-el-bAO">
@@ -107,7 +144,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DKA-CT-pQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-162" y="288"/>
+            <point key="canvasLocation" x="-257" y="-88"/>
         </scene>
     </scenes>
 </document>

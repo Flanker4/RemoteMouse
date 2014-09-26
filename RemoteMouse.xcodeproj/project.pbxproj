@@ -8,9 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0E284BA619884B230014024A /* SlaveTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E284BA519884B230014024A /* SlaveTableViewController.swift */; };
+		0E798B4D19D5DDB4008F394A /* EventsTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E798B4C19D5DDB4008F394A /* EventsTabBarViewController.swift */; };
 		0E9DFC5A198BA22C009DA0AE /* QServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9DFC58198BA22C009DA0AE /* QServer.m */; };
 		0E9DFC5B198BA22C009DA0AE /* QServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9DFC58198BA22C009DA0AE /* QServer.m */; };
 		0EA1740F198ADBCC00C52F61 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA1740E198ADBCC00C52F61 /* EventViewController.swift */; };
+		0EAED862199DF678002775DA /* TouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAED861199DF678002775DA /* TouchView.swift */; };
+		0EC589E419D5D1FF0017645A /* TouchEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC589E319D5D1FF0017645A /* TouchEventViewController.swift */; };
+		0EC589E719D5D21F0017645A /* IntelTouchEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC589E619D5D21F0017645A /* IntelTouchEventViewController.swift */; };
+		0EC589E919D5D2390017645A /* MotionEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC589E819D5D2390017645A /* MotionEventViewController.swift */; };
 		0ED371E01988E878007CA288 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED371DF1988E878007CA288 /* main.swift */; };
 		0ED371E21988E878007CA288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED371E11988E878007CA288 /* AppDelegate.swift */; };
 		0ED371E41988E878007CA288 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ED371E31988E878007CA288 /* Images.xcassets */; };
@@ -52,10 +57,15 @@
 
 /* Begin PBXFileReference section */
 		0E284BA519884B230014024A /* SlaveTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlaveTableViewController.swift; path = ViewControllers/SlaveTableViewController.swift; sourceTree = "<group>"; };
+		0E798B4C19D5DDB4008F394A /* EventsTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsTabBarViewController.swift; path = ViewControllers/EventsTabBarViewController.swift; sourceTree = "<group>"; };
 		0E9DFC58198BA22C009DA0AE /* QServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QServer.m; path = Common/QServer.m; sourceTree = "<group>"; };
 		0E9DFC59198BA22C009DA0AE /* QServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QServer.h; path = Common/QServer.h; sourceTree = "<group>"; };
 		0E9DFC5C198BA3EA009DA0AE /* Swift-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Swift-Bridging-Header.h"; path = "Common/Swift-Bridging-Header.h"; sourceTree = "<group>"; };
 		0EA1740E198ADBCC00C52F61 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventViewController.swift; path = ViewControllers/EventViewController.swift; sourceTree = "<group>"; };
+		0EAED861199DF678002775DA /* TouchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TouchView.swift; path = Views/TouchView.swift; sourceTree = "<group>"; };
+		0EC589E319D5D1FF0017645A /* TouchEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TouchEventViewController.swift; path = ViewControllers/TouchEventViewController.swift; sourceTree = "<group>"; };
+		0EC589E619D5D21F0017645A /* IntelTouchEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntelTouchEventViewController.swift; path = ViewControllers/IntelTouchEventViewController.swift; sourceTree = "<group>"; };
+		0EC589E819D5D2390017645A /* MotionEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MotionEventViewController.swift; path = ViewControllers/MotionEventViewController.swift; sourceTree = "<group>"; };
 		0ED371DB1988E878007CA288 /* RemoteMouseMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteMouseMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ED371DE1988E878007CA288 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0ED371DF1988E878007CA288 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -112,6 +122,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EC589E219D5D1B80017645A /* EventViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0EC589E519D5D2050017645A /* Base */,
+				0EC589E319D5D1FF0017645A /* TouchEventViewController.swift */,
+				0EC589E619D5D21F0017645A /* IntelTouchEventViewController.swift */,
+				0EC589E819D5D2390017645A /* MotionEventViewController.swift */,
+			);
+			name = EventViewControllers;
+			sourceTree = "<group>";
+		};
+		0EC589E519D5D2050017645A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0E798B4C19D5DDB4008F394A /* EventsTabBarViewController.swift */,
+				0EA1740E198ADBCC00C52F61 /* EventViewController.swift */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
 		0ED371DC1988E878007CA288 /* RemoteMouseMac */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,12 +236,13 @@
 		0EEB48F919883E5000FBF84D /* RemoteMouseIOS */ = {
 			isa = PBXGroup;
 			children = (
+				0EC589E219D5D1B80017645A /* EventViewControllers */,
 				0EEB48FC19883E5000FBF84D /* AppDelegate.swift */,
 				0EEB490019883E5000FBF84D /* Main.storyboard */,
 				0E284BA519884B230014024A /* SlaveTableViewController.swift */,
-				0EA1740E198ADBCC00C52F61 /* EventViewController.swift */,
 				0EEB490319883E5000FBF84D /* Images.xcassets */,
 				0EEB48FA19883E5000FBF84D /* Supporting Files */,
+				0EAED861199DF678002775DA /* TouchView.swift */,
 			);
 			name = RemoteMouseIOS;
 			path = RemoteMouse;
@@ -423,11 +454,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EC589E419D5D1FF0017645A /* TouchEventViewController.swift in Sources */,
+				0EC589E919D5D2390017645A /* MotionEventViewController.swift in Sources */,
+				0E798B4D19D5DDB4008F394A /* EventsTabBarViewController.swift in Sources */,
 				0E9DFC5A198BA22C009DA0AE /* QServer.m in Sources */,
 				0EEB48FD19883E5000FBF84D /* AppDelegate.swift in Sources */,
 				0EA1740F198ADBCC00C52F61 /* EventViewController.swift in Sources */,
 				0ED371FF1988E972007CA288 /* NetworkHelper.swift in Sources */,
+				0EAED862199DF678002775DA /* TouchView.swift in Sources */,
 				0E284BA619884B230014024A /* SlaveTableViewController.swift in Sources */,
+				0EC589E719D5D21F0017645A /* IntelTouchEventViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

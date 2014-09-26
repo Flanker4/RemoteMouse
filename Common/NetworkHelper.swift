@@ -9,7 +9,7 @@
 import Foundation
 let BonjourDomain   = "local."
 let BonjourType     = "_remotemouse._tcp."
-let BonjourName     = "GG"
+let BonjourName     = "GG22"
 let BonjourPort:Int32     = 6544
 
 enum ServerEvent:UInt8 {
@@ -41,7 +41,7 @@ class NetworkHelper: NSObject, NSNetServiceDelegate, NSNetServiceBrowserDelegate
 
     var hasConnection:Bool  {
         get {
-            return (self.outputStream&&self.inputStream)
+            return (self.outputStream != nil) && (self.inputStream != nil)
         }
     }
 ///
@@ -52,7 +52,7 @@ class NetworkHelper: NSObject, NSNetServiceDelegate, NSNetServiceBrowserDelegate
         self.registerCompletionClosure = registrationCompletion
         self.readerCallback = callback
         let netService = NSNetService(domain: BonjourDomain, type: BonjourType, name: BonjourName);
-        netService.scheduleInRunLoop(NSRunLoop.currentRunLoop(), forMode: kCFRunLoopDefaultMode)
+        netService.scheduleInRunLoop(NSRunLoop.currentRunLoop(), forMode: kCFRunLoopDefaultMode as NSString )
         netService.delegate = self
         netService.publishWithOptions(NSNetServiceOptions.ListenForConnections)
         return netService
@@ -67,10 +67,12 @@ class NetworkHelper: NSObject, NSNetServiceDelegate, NSNetServiceBrowserDelegate
         //prepare
         self.findActiveServicesClosure = completion
         activeServices.removeAll(keepCapacity: true)
-
+        browser.includesPeerToPeer = true;
+        browser.scheduleInRunLoop(NSRunLoop.currentRunLoop(), forMode: NSDefaultRunLoopMode)
         //let's go
         browser.delegate = self
         browser.searchForServicesOfType(BonjourType, inDomain: BonjourDomain)
+        //browser.searchForBrowsableDomains()
     }
   
     func connectToService(service:NSNetService, didConnectCallback:NetworkHelperClinetDidConnect?=nil)->Bool{
@@ -83,7 +85,7 @@ class NetworkHelper: NSObject, NSNetServiceDelegate, NSNetServiceBrowserDelegate
        
         success = service.getInputStream(&inStream, outputStream: &outStream)
         
-        if  (success)&&(inStream)&&(outStream) {
+        if ((success)&&(inStream != nil)&&(outStream != nil)) {
             self.openStreams([inStream!,outStream!])
             
             if let complition = self.clientDidConnectCallback{
@@ -119,7 +121,7 @@ class NetworkHelper: NSObject, NSNetServiceDelegate, NSNetServiceBrowserDelegate
     }
     
     func closeStreams(){
-        if  (self.inputStream && self.outputStream){
+        if  (self.inputStream != nil) && (self.outputStream != nil){
             self.closeStreams([self.inputStream!,self.outputStream!])
         }
         self.inputStream = nil;
@@ -201,6 +203,17 @@ class NetworkHelper: NSObject, NSNetServiceDelegate, NSNetServiceBrowserDelegate
         }
     }
     
+    func netServiceBrowser(aNetServiceBrowser: NSNetServiceBrowser, didFindDomain domainString: String, moreComing: Bool) {
+        println("i find domain \(domainString)")
+    }
+    
+    func netServiceBrowserDidStopSearch(aNetServiceBrowser: NSNetServiceBrowser) {
+        println("stop search")
+    }
+    
+    func netServiceBrowserWillSearch(aNetServiceBrowser: NSNetServiceBrowser) {
+        println("will search")
+    }
 ///
 /// MARK: NSStream Delegate
 ///

@@ -19,13 +19,13 @@ class AppDelegate: NSObject, NSApplicationDelegate ,QServerDelegate{
     //
     // MARK: - var
     //
-    @IBOutlet var window: NSWindow
-    @lazy var networkHelper = NetworkHelper()
-    @lazy var server        = QServer(domain:BonjourDomain, type:BonjourType, name:BonjourName, preferredPort:0);
+    @IBOutlet var window: NSWindow?
+    lazy var networkHelper = NetworkHelper()
+    lazy var server        = QServer(domain:BonjourDomain, type:BonjourType, name:BonjourName, preferredPort:0);
     var statusItem: NSStatusItem?
     
     //UI
-    @IBOutlet var menu:         NSMenu
+    @IBOutlet var menu:         NSMenu?
     //
     // MARK: - func
     //
@@ -82,7 +82,7 @@ class AppDelegate: NSObject, NSApplicationDelegate ,QServerDelegate{
                 point.x+=CGFloat(data[1])
                 CGWarpMouseCursorPosition(point);
             case .MouseTap:
-                self.simulateMouseClick()
+                self.simulateMouseClick(clickCount: data[0])
             case .DidCloseServer:
                 self.applicationWillTerminate(nil)
                 self.server.start()
@@ -115,7 +115,25 @@ class AppDelegate: NSObject, NSApplicationDelegate ,QServerDelegate{
     }
     
     func simulateMouseClick(clickCount:Int=1 , completion:(() -> Void)?=nil){
-        self.simulateMouseEvent(kCGEventLeftMouseDown)
+        println("simulate click \(clickCount)")
+        let ourEvent = CGEventCreate(nil).takeRetainedValue()
+        
+        let mouseLocation = CGEventGetLocation(ourEvent)
+        
+        let theEvent = CGEventCreateMouseEvent(CGEventSourceCreate(CGEventSourceStateID(kCGEventSourceStateHIDSystemState)).takeRetainedValue(), kCGEventLeftMouseDown, mouseLocation, CGMouseButton(kCGMouseButtonLeft)).takeRetainedValue()
+        CGEventSetIntegerValueField(theEvent, CGEventField(kCGMouseEventClickState),Int64(clickCount));
+        CGEventPost(CGEventTapLocation(kCGHIDEventTap), theEvent);
+        CGEventSetType(theEvent, kCGEventLeftMouseUp);
+        CGEventPost(CGEventTapLocation(kCGHIDEventTap), theEvent);
+        if (clickCount==1){
+            return
+        }
+        CGEventSetType(theEvent, kCGEventLeftMouseDown);
+        CGEventPost(CGEventTapLocation(kCGHIDEventTap), theEvent);
+        CGEventSetType(theEvent, kCGEventLeftMouseUp);
+        CGEventPost(CGEventTapLocation(kCGHIDEventTap), theEvent);
+        
+        /*self.simulateMouseEvent(kCGEventLeftMouseDown)
         
         let delay = 0.2 * Double(NSEC_PER_SEC)
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
@@ -128,7 +146,7 @@ class AppDelegate: NSObject, NSApplicationDelegate ,QServerDelegate{
             }else{
                 self.simulateMouseClick(clickCount: clickCount-1, completion: completion)
             }
-        })
+        })*/
     }
     
 

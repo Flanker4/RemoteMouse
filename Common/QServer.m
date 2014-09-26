@@ -632,6 +632,7 @@ static void ListeningSocketCallback(CFSocketRef sock, CFSocketCallBackType type,
         name:(self.name == nil) ? @"" : self.name
         port:(int)self.registeredPort
     ];
+    self.netService.includesPeerToPeer = YES;
     assert(self.netService != nil);
 
     for (NSString * mode in self.runLoopModesMutable) {
