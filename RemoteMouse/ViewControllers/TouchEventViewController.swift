@@ -26,8 +26,6 @@ class TouchEventViewController: EventViewController {
             
             self.view.addSubview(_touchView!)
            
-
- 
             let bindings = ["parentView": self.view, "touchView":_touchView!]
             // Width constraint and position
             self.view.addConstraints(
@@ -72,9 +70,12 @@ class TouchEventViewController: EventViewController {
     
     func didPan(sender: UIPanGestureRecognizer) {
         
+        println("velocity:\(sender.velocityInView(self.touchView)) and state: \(sender.state.toRaw())")
+
+        
         switch (sender.state){
         case .Began:
-            let location = sender.locationInView(self.view)
+            let location = sender.locationInView(self.touchView)
             self.prevPanPosition = location
             self.touchView.startDrawPoint = location;
         case .Ended,.Cancelled,.Failed:
@@ -82,7 +83,7 @@ class TouchEventViewController: EventViewController {
             self.touchView.startDrawPoint = nil;
             self.touchView.endDrawPoint = nil;
         default:
-            let location = sender.locationInView(self.view)
+            let location = sender.locationInView(self.touchView)
             
             //update ui
             self.touchView.endDrawPoint = location;
