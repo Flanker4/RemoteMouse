@@ -45,7 +45,12 @@ class EventsTabBarViewController: UITabBarController {
     
     func sendData(byteData:[UInt8]){
         if  let stream = self.outputStream{
-            stream.write(byteData, maxLength: sizeof(UInt8)*byteData.count);
+            //dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+                stream.write(byteData, maxLength: Int(sizeof(UInt8)*byteData.count))
+               // return
+            //})
+            
+
         }
     }
     

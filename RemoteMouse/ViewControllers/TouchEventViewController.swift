@@ -69,10 +69,6 @@ class TouchEventViewController: EventViewController {
     }
     
     func didPan(sender: UIPanGestureRecognizer) {
-        
-        println("velocity:\(sender.velocityInView(self.touchView)) and state: \(sender.state.toRaw())")
-
-        
         switch (sender.state){
         case .Began:
             let location = sender.locationInView(self.touchView)

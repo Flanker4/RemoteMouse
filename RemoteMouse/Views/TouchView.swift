@@ -9,8 +9,6 @@
 import UIKit
 
 class TouchView: UIView {
-    var timer:NSTimer?
-    let timerInterval = 0.01
     
     private var _startDrawPoint:CGPoint?
     private var _endDrawPoint:CGPoint?
